@@ -1,0 +1,8 @@
+\contentsline {section}{\numberline {1}Goal of the project }{4}
+\contentsline {section}{\numberline {2}Concepts vocabulary}{5}
+\contentsline {section}{\numberline {3}User stories}{7}
+\contentsline {section}{\numberline {4}Functional Requirements}{8}
+\contentsline {section}{\numberline {5}Non Functional Requirements}{10}
+\contentsline {section}{\numberline {6}GUI prototype}{11}
+\contentsline {section}{\numberline {7}Evaluation of solution}{12}
+\contentsline {section}{\numberline {8}Risk analysis}{12}

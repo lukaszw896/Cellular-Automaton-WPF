@@ -1,0 +1,457 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.3.12)  22 MAR 2015 13:38
+entering extended mode
+**bussines*analysis.tex
+("C:\Users\ﾅ「kasz\Desktop\Individual project\bussines analysis.tex"
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2013-05-26, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
+ lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
+german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
+ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
+an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
+ishmax, welsh, loaded.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\size10.clo"
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+Package: inputenc 2008/03/30 v1.1d Input encoding file
+\inpenc@prehook=\toks15
+\inpenc@posthook=\toks16
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\cp1250.def"
+File: cp1250.def 2008/03/30 v1.1d Input encoding file
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\zref.sty"
+Package: zref 2012/04/04 v2.24 A new reference scheme for LaTeX (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\zref-base.sty"
+Package: zref-base 2012/04/04 v2.24 Module base for zref (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvsetkeys.sty"
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty"
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvdefinekeys.sty"
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty"
+Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
+)
+Package zref Info: New property list: main on input line 759.
+Package zref Info: New property: default on input line 760.
+Package zref Info: New property: page on input line 761.
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\zref-lastpage.sty"
+Package: zref-lastpage 2012/04/04 v2.24 Module lastpage for zref (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\zref-abspage.sty"
+Package: zref-abspage 2012/04/04 v2.24 Module abspage for zref (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\atbegshi.sty"
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+)
+\c@abspage=\count88
+Package zref Info: New property: abspage on input line 62.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\atveryend.sty"
+Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+)
+Package zref Info: New property list: LastPage on input line 55.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\zref-user.sty"
+Package: zref-user 2012/04/04 v2.24 Module user for zref (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\colortbl\colortbl.sty"
+Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen105
+\extrarowheight=\dimen106
+\NC@list=\toks17
+\extratabsurround=\skip43
+\backup@length=\skip44
+)
+\everycr=\toks18
+\minrowclearance=\skip45
+)
+\rownum=\count89
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdfpages\pdfpages.sty"
+Package: pdfpages 2013/08/25 v0.4v Insert pages of external PDF documents (AM)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count90
+\calc@Bcount=\count91
+\calc@Adimen=\dimen107
+\calc@Bdimen=\dimen108
+\calc@Askip=\skip46
+\calc@Bskip=\skip47
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count92
+\calc@Cskip=\skip48
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\eso-pic\eso-pic.sty"
+Package: eso-pic 2013/10/06 v2.0d eso-pic (RN)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdfpages\pppdftex.def"
+File: pppdftex.def 2013/08/25 v0.4v Pdfpages driver for pdfTeX (AM)
+)
+\AM@pagebox=\box26
+\AM@toc@title=\toks19
+\c@AM@survey=\count93
+\AM@templatesizebox=\box27
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\adjustbox\adjustbox.sty"
+Package: adjustbox 2012/05/21 v1.0 Adjusting TeX boxes (trim, clip, ...)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\xkeyval\xkeyval.sty"
+Package: xkeyval 2012/10/14 v2.6b package option processing (HA)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\xkeyval.tex"
+\XKV@toks=\toks20
+\XKV@tempa@toks=\toks21
+\XKV@depth=\count94
+File: xkeyval.tex 2012/10/14 v2.6b key=value parser (HA)
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\adjustbox\adjcalc.sty"
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\adjustbox\trimclip.sty"
+Package: trimclip 2012/05/16 v1.0 Trim and clip general TeX material
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\collectbox\collectbox.sty"
+Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
+\collectedbox=\box28
+)
+\tc@llx=\dimen109
+\tc@lly=\dimen110
+\tc@urx=\dimen111
+\tc@ury=\dimen112
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\adjustbox\tc-pdftex.def"
+File: tc-pdftex.def 2012/05/13 v1.0 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen113
+\adjbox@Height=\dimen114
+\adjbox@Depth=\dimen115
+\adjbox@Totalheight=\dimen116
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ifoddpage\ifoddpage.sty"
+Package: ifoddpage 2011/09/13 v1.0 Conditionals for odd/even page detection
+\c@checkoddpage=\count95
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\ltxmisc\varwidth.sty"
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box29
+\sift@deathcycles=\count96
+\@vwid@loff=\dimen117
+\@vwid@roff=\dimen118
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\tabu\tabu.sty"
+Package: tabu 2011/02/26 v2.8 - flexible LaTeX tabulars (FC)
+\c@taburow=\count97
+\tabu@nbcols=\count98
+\tabu@cnt=\count99
+\tabu@Xcol=\count100
+\tabu@alloc=\count101
+\tabu@nested=\count102
+\tabu@target=\dimen119
+\tabu@spreadtarget=\dimen120
+\tabu@naturalX=\dimen121
+\tabucolX=\dimen122
+\tabu@Xsum=\dimen123
+\extrarowdepth=\dimen124
+\abovetabulinesep=\dimen125
+\belowtabulinesep=\dimen126
+\tabustrutrule=\dimen127
+\tabu@thebody=\toks22
+\tabu@footnotes=\toks23
+\tabu@box=\box30
+\tabu@arstrutbox=\box31
+\tabu@hleads=\box32
+\tabu@vleads=\box33
+\tabu@cellskip=\skip49
+)
+("C:\Users\ﾅ「kasz\Desktop\Individual project\bussines analysis.aux")
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count103
+\scratchdimen=\dimen128
+\scratchbox=\box34
+\nofMPsegments=\count104
+\nofMParguments=\count105
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count106
+\MPscratchDim=\dimen129
+\MPnumerator=\count107
+\makeMPintoPDFobject=\count108
+\everyMPtoPDFconversion=\toks25
+)
+\AtBeginShipoutBox=\box35
+ <images/mini.png, id=1, 376.40625pt x 367.3725pt>
+File: images/mini.png Graphic file (type png)
+ <use images/mini.png>
+Package pdftex.def Info: images/mini.png used on input line 46.
+(pdftex.def)             Requested size: 284.52756pt x 277.72049pt.
+
+[1
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/ﾅ「kasz/Desktop/
+Individual project/images/mini.png>]
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <284.52756> not available
+(Font)              size <24.88> substituted on input line 53.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <284.52756> not available
+
+(Font)              size <24.88> substituted on input line 53.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 64.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 64.
+
+Overfull \hbox (53.94783pt too wide) in paragraph at lines 86--99
+[][] 
+ []
+
+
+Overfull \hbox (13.80612pt too wide) in paragraph at lines 105--113
+[][] 
+ []
+
+[2] ("C:\Users\ﾅ「kasz\Desktop\Individual project\bussines analysis.toc")
+\tf@toc=\write3
+
+[3] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--130
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--132
+
+ []
+
+[5]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 137.
+
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <14.4> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 137.
+
+<images/4_neigh.png, id=25, 79.04532pt x 76.03406pt>
+File: images/4_neigh.png Graphic file (type png)
+ <use images/4_neigh.png>
+Package pdftex.def Info: images/4_neigh.png used on input line 138.
+(pdftex.def)             Requested size: 85.35826pt x 82.11206pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 137--139
+
+ []
+
+<images/8_neigh.png, id=26, 79.04532pt x 76.03406pt>
+File: images/8_neigh.png Graphic file (type png)
+ <use images/8_neigh.png>
+Package pdftex.def Info: images/8_neigh.png used on input line 142.
+(pdftex.def)             Requested size: 85.35826pt x 82.11206pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 141--143
+
+ []
+
+<images/24_neigh.png, id=27, 130.23656pt x 125.71968pt>
+File: images/24_neigh.png Graphic file (type png)
+
+<use images/24_neigh.png>
+Package pdftex.def Info: images/24_neigh.png used on input line 146.
+(pdftex.def)             Requested size: 85.35826pt x 82.39781pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 145--147
+
+ []
+
+[6 <C:/Users/ﾅ「kasz/Desktop/Individual project/images/4_neigh.png> <C:/Users/ﾅ
+「kasz/Desktop/Individual project/images/8_neigh.png> <C:/Users/ﾅ「kasz/Desktop
+/Individual project/images/24_neigh.png>]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 152.
+
+Overfull \hbox (70.34344pt too wide) in paragraph at lines 151--196
+|  [] 
+ []
+
+[7]
+Overfull \hbox (70.34344pt too wide) in paragraph at lines 199--223
+|  [] 
+ []
+
+[8]
+Overfull \hbox (85.34344pt too wide) in paragraph at lines 225--242
+[]|  [] 
+ []
+
+[9] [10] <images/gui_prototype.png, id=45, 906.38625pt x 624.08156pt>
+File: images/gui_prototype.png Graphic file (type png)
+
+<use images/gui_prototype.png>
+Package pdftex.def Info: images/gui_prototype.png used on input line 249.
+(pdftex.def)             Requested size: 517.5pt x 356.32059pt.
+ [11 <C:/Users/ﾅ「kasz/Desktop/Individual project/images/gui_prototype.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 266--267
+
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 271.
+[12]
+Package atveryend Info: Executing hook `AfterLastShipout' on input line 271.
+ ("C:\Users\ﾅ「kasz\Desktop\Individual project\bussines analysis.aux")
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 271.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 271.
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 259.64755pt have occurred.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 271.
+ ) 
+Here is how much of TeX's memory you used:
+ 4348 strings out of 493921
+ 63654 string characters out of 3147276
+ 135785 words of memory out of 3000000
+ 7560 multiletter control sequences out of 15000+200000
+ 6371 words of font info for 23 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
+ 41i,10n,35p,736b,332s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmsy10.pfb>
+Output written on "bussines analysis.pdf" (12 pages, 361482 bytes).
+PDF statistics:
+ 73 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+
