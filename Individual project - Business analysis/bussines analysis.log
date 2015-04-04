@@ -1,7 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.3.12)  22 MAR 2015 13:38
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.3.12)  2 APR 2015 12:12
 entering extended mode
 **bussines*analysis.tex
-("C:\Users\ﾅ「kasz\Desktop\Individual project\bussines analysis.tex"
+
+("C:\Users\ﾅ「kasz\Desktop\Individual Project\Individual project - Business ana
+lysis\bussines analysis.tex"
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -271,7 +273,8 @@ Package: tabu 2011/02/26 v2.8 - flexible LaTeX tabulars (FC)
 \tabu@vleads=\box33
 \tabu@cellskip=\skip49
 )
-("C:\Users\ﾅ「kasz\Desktop\Individual project\bussines analysis.aux")
+("C:\Users\ﾅ「kasz\Desktop\Individual Project\Individual project - Business ana
+lysis\bussines analysis.aux")
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
@@ -309,7 +312,7 @@ Package pdftex.def Info: images/mini.png used on input line 46.
 [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/ﾅ「kasz/Desktop/
-Individual project/images/mini.png>]
+Individual Project/Individual project - Business analysis/images/mini.png>]
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <284.52756> not available
 (Font)              size <24.88> substituted on input line 53.
@@ -333,10 +336,11 @@ Overfull \hbox (13.80612pt too wide) in paragraph at lines 105--113
 [][] 
  []
 
-[2] ("C:\Users\ﾅ「kasz\Desktop\Individual project\bussines analysis.toc")
+[2]
+("C:\Users\ﾅ「kasz\Desktop\Individual Project\Individual project - Business ana
+lysis\bussines analysis.toc")
 \tf@toc=\write3
-
-[3] [4]
+ [3] [4]
 Underfull \hbox (badness 10000) in paragraph at lines 127--128
 
  []
@@ -391,9 +395,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 145--147
 
  []
 
-[6 <C:/Users/ﾅ「kasz/Desktop/Individual project/images/4_neigh.png> <C:/Users/ﾅ
-「kasz/Desktop/Individual project/images/8_neigh.png> <C:/Users/ﾅ「kasz/Desktop
-/Individual project/images/24_neigh.png>]
+[6 <C:/Users/ﾅ「kasz/Desktop/Individual Project/Individual project - Business a
+nalysis/images/4_neigh.png> <C:/Users/ﾅ「kasz/Desktop/Individual Project/Indivi
+dual project - Business analysis/images/8_neigh.png> <C:/Users/ﾅ「kasz/Desktop/
+Individual Project/Individual project - Business analysis/images/24_neigh.png>]
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 152.
 
@@ -417,7 +422,8 @@ File: images/gui_prototype.png Graphic file (type png)
 <use images/gui_prototype.png>
 Package pdftex.def Info: images/gui_prototype.png used on input line 249.
 (pdftex.def)             Requested size: 517.5pt x 356.32059pt.
- [11 <C:/Users/ﾅ「kasz/Desktop/Individual project/images/gui_prototype.png>]
+ [11 <C:/Users/ﾅ「kasz/Desktop/Individual Project/Individual project - Business
+ analysis/images/gui_prototype.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 266--267
 
  []
@@ -425,7 +431,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 266--267
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 271.
 [12]
 Package atveryend Info: Executing hook `AfterLastShipout' on input line 271.
- ("C:\Users\ﾅ「kasz\Desktop\Individual project\bussines analysis.aux")
+
+("C:\Users\ﾅ「kasz\Desktop\Individual Project\Individual project - Business ana
+lysis\bussines analysis.aux")
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 271.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 271.
 
@@ -437,7 +445,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 271.
  ) 
 Here is how much of TeX's memory you used:
  4348 strings out of 493921
- 63654 string characters out of 3147276
+ 64005 string characters out of 3147276
  135785 words of memory out of 3000000
  7560 multiletter control sequences out of 15000+200000
  6371 words of font info for 23 fonts, out of 3000000 for 9000
