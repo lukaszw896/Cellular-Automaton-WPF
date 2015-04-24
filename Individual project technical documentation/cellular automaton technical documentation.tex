@@ -10,6 +10,9 @@
 \usepackage{graphicx}
 \usepackage[export]{adjustbox}
 \usepackage{tabu}
+\usepackage{enumerate}
+\usepackage{color}
+
 
 \begin{document}
 
@@ -92,9 +95,9 @@
 \textbf{Topics:}        & \multicolumn{5}{l|}{Technical aspect of project}                                                                                                 \\ \hline
 \textbf{Author:}        & \multicolumn{5}{l|}{Lukasz Wójcik}                                                                                                                         \\ \hline
 \textbf{File:}          & \multicolumn{5}{l|}{cellular\_automata\_technical\_documentation}                                                                                        \\ \hline
-\textbf{Version no:}    & 0.21 & \cellcolor[HTML]{BF6969}\textbf{Status:} & Designing                                 & \cellcolor[HTML]{BF6969}\textbf{Opening date:} & 2015-03-26 \\ \hline
+\textbf{Version no:}    & 0.3 & \cellcolor[HTML]{BF6969}\textbf{Status:} & Designing                                 & \cellcolor[HTML]{BF6969}\textbf{Opening date:} & 2015-03-26 \\ \hline
 \textbf{Summary:}       & \multicolumn{5}{l|}{Providing technical documentation.}\\ \hline
-\textbf{Authorized by:} & \multicolumn{2}{l|}{Wladyslaw Homenda}           & \multicolumn{2}{l|}{\cellcolor[HTML]{BF6969}\textbf{Last modification date:}}              & 2015-04-01 \\ \hline
+\textbf{Authorized by:} & \multicolumn{2}{l|}{Wladyslaw Homenda}           & \multicolumn{2}{l|}{\cellcolor[HTML]{BF6969}\textbf{Last modification date:}}              & 2015-04-08 \\ \hline
 \end{tabular}
 \end{table}
 \begin{flushleft}
@@ -111,6 +114,7 @@ Version & Date       & Who           & Description                            \\
 0.1     & 2015-03-26 & Lukasz Wójcik & Creation of technical documentation sections. Initial planning \\ \hline
 0.2     & 2015-03-27 & Lukasz Wójcik & Creation of technical documentation.\\ \hline
 0.21     & 2015-03-27 & Lukasz Wójcik & Correction of spelling mistakes. \\ \hline
+0.3     & 2015-04-08 & Lukasz Wójcik & Correction of algorithm for adding rules.\\ \hline
 \end{tabular}
 \end{table}
 \newpage
@@ -128,7 +132,7 @@ Version & Date       & Who           & Description                            \\
 Methodology used for implementation is a "Waterfall Model"
 \begin{figure}[h!]
 		\includegraphics[width=1.0\textwidth, center]{images/waterfall_model.png}
-		\foot{Waterfall-model (In our case it end on testing)}
+		{Waterfall-model (In our case it end on testing)}
 \end{figure}
 
 
@@ -137,31 +141,80 @@ This model is easy to understand and use. It is mostly used with relatively smal
 \newpage
 \section{Technologies} \par
 \Large\hspace{15pt}
-Our application will written in C\# language. For app development we will use Visual 2013. As a graphic engine we will use WPF (Windows Presentation Foundation) which is based on .NET 3. It gives nice tools to divide project on GUI and logical parts what helps in creating clean code. This application is destined for Windows Vista and higher. 
+This application will be written in C\# language.Visual Studio 2013 will be used for an app development. WPF (Windows Presentation Foundation) will be used as a graphic engine. WPF is based on .NET 3. It gives nice tools to divide project on GUI and logical parts what helps in creating clean code. This application is destined for Windows Vista and higher. 
 
 
 
 \section{Used data structures}
 \Large\hspace{15pt}
-To store grid data we will use two nested lists of cells object(or just boolean).In C\# exploring elements in List is as fast as in simple table but it gives way more tools. List is easy to expand/shrink and has many search functions already implemented.
+To store grid data we will use two nested lists of cells object(or just boolean).In case of N x M grid, a list storing other lists will have length of N and inner lists will have length of M (each inner list represents one column of grid). In C\# exploring elements in List is as fast as in simple table but it gives way more tools. List is easy to expand/shrink and has many search functions already implemented.
 \newpage
-\section{Description of algorithm}
+\section{Description of algorithms}
 \Large\hspace{15pt} 
-\hspace{15pt}This product will be based on Conway's Game of Life automaton. It means that is hat two dimensions. It also has two states (ON and OFF). State of the cell will be decided by \textbf{rules}. Rules describe which cells in neighborhood (4,8 or 24 point) are important and how many of them have to be in "ON" state  to keep cell alive or dead. Overlapping rules are resolved by one of three logical operations (XOR,OR,AND).
-We need two 2-dimensional matrices and one of which will start as "original" one. We will go through matrix with 2 loops where one will be placed in another. In each iteration of inner loop we will calculate cell state. Depending on neighborhood size, appropriate rule set will be chosen. We have to iterate through all rules in rule set and check which of them can be applied. 
-
-
-
-If there is more than one of them, than we use predefined logic operation to resolve this conflict (conflict arises since we can also create rule for killing a cell).
-in case where some of neighbors are outside the matrix, we virtually "stitch" left with right side and top with bottom border. For instance if neighborhood i exceeding top border, lacking neighbors are those adjacent to bottom border.
-
-
-After calculating the state of a cell, it is saved to cell with the same index in second matrix. Calculation of a new generation ends up in setting second matrix as an original one and displaying it on the screen. 
-
-
+\begin{itemize}
+	\item
+		\hspace{15pt} {\Large \bf Algorithm for defining a new rule}
+		\begin{enumerate}[I.]
+		\item Open "Add/Edit rule" window.\\
+		\item Click on "Add new" button to specify that a new rule will be added\\
+		\textit{"All subrules which are manually added to a rule set are determining that cell is alive. All other possible rules are making cell dead by default."}
+		\item Click on cells in a neighbors grid to choose those which will be included in counting active neighbors count, which will be refereed to as an "important" cell (It is also possible to select or deselect all rules by clicking on "Select all/Deselect all" button).\\
+		\item Chose a number from 0 to N (number of cells in neighborhood included in process of determining a state of a particular cell) to define how many "imporatant" cells have to be alive to change state of a cell.\\
+		\item Click on button indicating set of sub-rules to add to it a newly created sub-rule.\\
+		\item Continue adding new sub-rules or click apply button to use newly created rule.
+		
+		\end{enumerate}
+	 
+	 \newpage
+	  \item {\Large \bf  Algorithm for grid space wrapping}
+	  
+	  
+	  
+	 \textit{\large"Each cell in a matrix has its own index which represents its position in 2D space (coordinates [x,y]). In case where a cell from a neighborhood exceeds possible grid index we assume that top border and bottom border are connected and so are left and right border. After such assumptions we can imagine our matrix as a doughnut.All new values are saved to a copy of a grid."}
+	 \\
+	 	\begin{enumerate}[I.]
+	 		\item If coordinate X of a neighborhood cell exceeds matrix from right side, calculate the difference between X coordinate and grid width and set a X coordinate to the value of a difference.
+	 		\item If coordinate X of a neighborhood cell exceeds matrix from left side, set a value of an X coordinate to a sum of its starting value and grid width.
+	 		\item If coordinate Y of a neighborhood cell exceeds matrix from bottom side, calculate the difference between Y coordinate and grid height and set Y coordinate to the value of a difference.
+	 		\item If coordinate Y of a neighborhood cell exceeds matrix from the upper side, set a value of an y coordinate to a sum of its starting value and grid height.\\
+	 		
+	 		
+	 		\textit{"Neighborhood cell may exceed both X and Y axis of the grid. In this situation both coordinates should be recalculated."}
+	 		\\
+	 	\end{enumerate}
+	 \item  
+	 	\hspace{15pt} {\Large \bf Algorithm for determining state of a cell by a rule.}
+	 	\begin{enumerate}[I.]
+	 	\item Do following procedures until sub-rule for living cell will be found or until the and of sub-rule list:
+	 		\begin{enumerate}[a)]
+	 		\item Iterate trough all cells in neighborhood and count a number of "important", living ones ("important" cells are defined by sub-rule).
+	 		\item Check if obtained number is equal to the one expected by sub-rule.
+	 		\item If obtained number is equal to needed value than return information that sub-rule for living cell can be applied and stop checking other sub-rules.
+	 		\item If obtained number is not equal to needed value than check next sub-rule.
+	 		\end{enumerate}
+	 	\item If previous procedure returned information that there is a sub-rule which can be applied to a cell than change its state to living, otherwise change it to dead.	
+	 	\end{enumerate}
+	 	\newpage
+	\item 
+		\hspace{15pt} {\Large \bf Algorithm for creating new generation.}\\
+		
+		
+		\textit{"For this procedure two matrices will be needed. One storing state values from current generation and second for a new generation. After computation of each generation they are switching places"}
+		
+		\begin{enumerate}[I.]
+			\item For each cell in a current generation matrix do following procedures:
+			\begin{enumerate}[a)]
+				\item Calculate a new state of cell following algorithm determining a state of a cell.\\
+				\item save a new state to a matrix storing states for a new generation		
+			\end{enumerate}
+			\item Set new generation matrix to a current generation matrix and redraw visualization of a grid.
+		\end{enumerate}
+		
+		
+\end{itemize}
 \newpage
 \section{Functionality}
-\normalsize
+{\large
 	\begin{itemize}
 	
 	\item	
@@ -177,14 +230,12 @@ After calculating the state of a cell, it is saved to cell with the same index i
 	\item Control simulation - by choosing options play, pause, stop or reset simulation. \\
 	\item Observe movements step by step - by rewinding cells movement on click, depending on
 	the selected number of steps. \\
-	\item Resolve conflicts when there are contradicting rules - by selecting one of them or
-	selecting one of the logical operations (XOR, OR, AND) to be performed on them, for
-	example rule 1 OR rule 2. \\
 	\item Change grid's size - by option to zoom in/zoom out the visualisation.\\
 	\item Load known automaton - for example Langton's ant. \\	
 	\item Display information - by showing for example time of simulation (in seconds), number
 	of cells alive. \\			
 	\end{itemize}
+	}
 \newpage
 \section{Class diagram / program structure}
 \Large\hspace{15pt} 
@@ -216,12 +267,14 @@ Simple state diagram describing behavior of program in general.
 \newpage
 
 \section{Graphical user interface mock-up}
+\textit{\large"Graphical user interface has been slightly modified since there won't be any possibility to manually determine rules for death of cell, hence there won't be any contradiction in applying rules."}
 \begin{figure}[h!]
 		\includegraphics[width=1.0\textwidth, center]{images/Figure1.png}
 \end{figure}
 \begin{figure}[h!]
 		\includegraphics[width=1.0\textwidth, center]{images/Figure2.png}
 \end{figure}
+\iffalse
 \begin{figure}[h!]
 		\includegraphics[width=0.8\textwidth, center]{images/Figure3.png}
 \end{figure}
@@ -232,12 +285,12 @@ Simple state diagram describing behavior of program in general.
 \begin{figure}[h!]
 		\includegraphics[width=0.8\textwidth, center]{images/Figure5.png}
 \end{figure}
-
+\fi
 \newpage
 
 \section {Summary}
 
-This technical documentation has been made basing on Business analysis made by Mai Viet Ba. "Functionality" and "Graphical user interface mock-up" has been copied since these informations are very important from technical aspect.
+This technical documentation is based on Business analysis made by Mai Viet Ba. I have made small changes in terms of functionality. User won't be able to manually create rules for death of a cell. User will be able to create rules which will change status of a cell to living and the rest of rules from rule set will cause death of a cell. Such changes will prevent any contradiction and will save a lot of computational power since it won't be needed to check all rules in a rule set. "Functionality" and "Graphical from business documentation has been modified and included in this document. 
 
 Application created basing on this documentation should be very fast, user friendly and eye pleasing. The biggest drawback will be support for only one computer system (it also might be open through "Wine" on Linux but it's not an official solution so it might not work properly).
 

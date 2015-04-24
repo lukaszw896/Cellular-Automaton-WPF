@@ -9,17 +9,45 @@
             <ColumnDefinition Width="300"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0" Background="Aquamarine" Opacity="0.6">
-            <Canvas Name="gridCanvas" Margin="10,10,10,80" Background="white"></Canvas>
+
+
+            <ScrollViewer Margin="0,0,8,80" Background="Black"  HorizontalScrollBarVisibility="Auto">
+                <Border Name="GridBorder" BorderBrush="White" BorderThickness="3" Width="500" Height="500">
+            <Grid  Name="LifeGrid" AllowDrop="True" Width="500" Height="500">
+                <Grid.Resources>
+                    <Style TargetType="{x:Type Rectangle}">
+                        <Setter Property="Opacity" Value="{Binding Path=IsAlive}" />
+                    </Style>
+                    <Style BasedOn="{StaticResource {x:Type Rectangle}}"
+                             TargetType="{x:Type Rectangle}" x:Key="RectStyle" >
+                        <Setter Property="Fill" Value="Red" />
+                    </Style>
+                </Grid.Resources>
+            </Grid>
+                </Border>
+            </ScrollViewer>
+            
             <Grid Height="80" VerticalAlignment="Bottom">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Slider Name="zoomSlider" VerticalAlignment="Center" Margin="10" ValueChanged="zoomSlider_ValueChanged" Value="10" Minimum="1" Maximum="30"></Slider>
+                <Slider Name="zoomSlider" VerticalAlignment="Center" Margin="10" Thumb.DragCompleted="zoomSlider_DragCompleted"  Value="1" Minimum="1" Maximum="5"></Slider>
             </Grid>
         </Grid>
         <Grid Background="Aqua" Opacity="0.2" Grid.Column="1">
-            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>                
+            <Button Name="StartButton" Click="StartButton_Click" FontSize="25" Foreground="White"> Start</Button>
+            <Button Name="ClearButton" Click="ClearButton_Click" FontSize="25" Foreground="White" Grid.Row="1">Clear</Button>
+            <Label Grid.Column="1"  > Time </Label>
+            <TextBox Name="timeTextBox" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Text="150"></TextBox>
         </Grid>
     </Grid>
 </Controls:MetroWindow>

@@ -1,10 +1,10 @@
 \contentsline {section}{\numberline {1}Production model}{4}
 \contentsline {section}{\numberline {2}Technologies}{5}
-\contentsline {section}{\numberline {3}used data structures}{5}
-\contentsline {section}{\numberline {4}Description of algorithm}{6}
-\contentsline {section}{\numberline {5}Functionality}{7}
-\contentsline {section}{\numberline {6}Class diagram / program structure}{8}
-\contentsline {section}{\numberline {7}Use cases}{9}
-\contentsline {section}{\numberline {8}States diagram}{11}
-\contentsline {section}{\numberline {9}Graphical user interface mock-up}{12}
-\contentsline {section}{\numberline {10}Summary}{14}
+\contentsline {section}{\numberline {3}Used data structures}{5}
+\contentsline {section}{\numberline {4}Description of algorithms}{6}
+\contentsline {section}{\numberline {5}Functionality}{10}
+\contentsline {section}{\numberline {6}Class diagram / program structure}{11}
+\contentsline {section}{\numberline {7}Use cases}{12}
+\contentsline {section}{\numberline {8}States diagram}{14}
+\contentsline {section}{\numberline {9}Graphical user interface mock-up}{15}
+\contentsline {section}{\numberline {10}Summary}{16}
