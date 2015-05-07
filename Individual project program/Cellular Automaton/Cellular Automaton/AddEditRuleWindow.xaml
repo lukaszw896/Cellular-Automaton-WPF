@@ -1,0 +1,56 @@
+﻿<Controls:MetroWindow x:Class="Cellular_Automaton.AddEditRuleWindow"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AddEditRuleWindow" Height="400" Width="750" Background="#333" Loaded="MetroWindow_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="240"/>
+        </Grid.ColumnDefinitions>
+        <Grid Background="#767785">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label VerticalAlignment="Center">Load rule</Label>
+            <ComboBox Name="ruleListCombobox" Margin="70,5,5,5" SelectionChanged="ruleListCombobox_SelectionChanged"></ComboBox>
+            <Label Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="19">OR</Label>
+            <Button Name="addNewRuleButton" Click="addNewRuleButton_Click"  Grid.Row="2" Margin="5">Add New</Button>
+            <TextBlock TextWrapping="Wrap" Grid.Row="3" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" >Number of cells alive out of chosen ones:</TextBlock>
+            <TextBox Name="RequiredNumberOfAliveCellsTextBox" TextChanged="RequiredNumberOfAliveCellsTextBox_TextChanged" Grid.Row="4"   HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Margin="10,0,135,0"/>
+            <Label Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25">-</Label>
+            <TextBox IsReadOnly="True" Name="maxNumberOfCellsAliveTextBox" Grid.Row="4" Margin="135,0,10,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20"></TextBox>
+            <Button Name="selectAllButton" Click="selectAllButton_Click"  Grid.Row="5" Margin="5">Select all cells</Button>
+            <Button Name="deselectButton" Click="deselectButton_Click" Grid.Row="6" Margin="5">Deselect all cells</Button>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Name="deleteRule" Click="deleteRule_Click" Margin="5">Delete rule</Button>
+            <Grid Name="enviromentGrid" Grid.Row="1" Height="250" Margin="5"></Grid>
+       </Grid>
+        <StackPanel VerticalAlignment="Center" Grid.Column="2">
+            <Button Name="addSubRule" Click="addSubRule_Click">+</Button>
+            <Button Name="ereaseSubRule" Click="ereaseSubRule_Click">-</Button>
+        </StackPanel>
+        <Grid Grid.Column="3" Background="#767785">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <ListView Name="subRuleListView" SelectionChanged="subRuleListView_SelectionChanged" Margin="5"></ListView>
+            <Button Grid.Row="1" Margin="5"> Apply</Button>
+        </Grid>
+        
+    </Grid>
+</Controls:MetroWindow>

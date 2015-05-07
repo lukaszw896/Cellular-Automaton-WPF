@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Windows.Interop;
 
 namespace Cellular_Automaton
 {
@@ -22,11 +25,15 @@ namespace Cellular_Automaton
     public partial class MainWindow : MetroWindow
     {
         CellularAutomaton cellularAutomaton;
-        int _rowNum = 100;
-        int _colNum = 100;
+        int _rowNum = 50;
+        int _colNum = 50;
         double gridStartWidth = 500;
         double gridStartHeight = 500;
         bool doWork = false;
+        public static Dictionary<String, List<SubRule4PointNH>> ruleList4PNH = new Dictionary<string, List<SubRule4PointNH>>();
+        public static Dictionary<String,List<SubRule8PointNH>> ruleList8PNH = new Dictionary<String, List<SubRule8PointNH>>();
+        public static Dictionary<String, List<SubRule24PointNH>> ruleList24PNH = new Dictionary<string, List<SubRule24PointNH>>();
+
         public MainWindow()
         {
             cellularAutomaton = new CellularAutomaton(_rowNum,_colNum);
@@ -35,6 +42,8 @@ namespace Cellular_Automaton
             LifeGrid.Width = gridStartWidth;
             GridBorder.Height = gridStartHeight;
             GridBorder.Width = gridStartWidth;
+            PopulateRuleLists();
+            addItemsToCheckBox(4);
             
         }
         
@@ -55,6 +64,10 @@ namespace Cellular_Automaton
             //CreateGrid(100, 100);
           //  gridStartHeight = LifeGrid.Height;
            // gridStartWidth = LifeGrid.Width;
+            FourPNHCHeckBox.IsChecked = true;
+            InitEnviromentGrid(4);
+            PopulateEnviromentGrid(4);
+            ruleComboBox.SelectedValue = "Weird shapes";
         }
 
         #region bitmap version
@@ -123,7 +136,7 @@ namespace Cellular_Automaton
         */
         #endregion
 
-
+        #region POPULATING GRIDS
         private void InitGrid()
         {
             LifeGrid.Children.Clear();
@@ -133,15 +146,34 @@ namespace Cellular_Automaton
             for (int i = 0; i < _rowNum; i++)
             {
                 RowDefinition rd = new RowDefinition();
-                Binding rowBinding = new Binding("Height");
-                rowBinding.Source = cellularAutomaton.CellGrid[0][i];
-                rd.SetBinding(RowDefinition.HeightProperty, rowBinding);
                 LifeGrid.RowDefinitions.Add(rd);
             }
             //adding columns
             for (int i = 0; i < _colNum; i++)
             {
                 LifeGrid.ColumnDefinitions.Add(new ColumnDefinition());
+            }
+        }
+
+        private void InitEnviromentGrid(int neighboursCount)
+        {
+            int rowColNum = 0;
+            if (neighboursCount == 24){ rowColNum = 5; }
+            else { rowColNum = 3; }
+
+            enviromentGrid.Children.Clear();
+            enviromentGrid.RowDefinitions.Clear();
+            enviromentGrid.ColumnDefinitions.Clear();
+            //adding rows
+            for (int i = 0; i < rowColNum; i++)
+            {
+                RowDefinition rd = new RowDefinition();
+                enviromentGrid.RowDefinitions.Add(rd);
+            }
+            //adding columns
+            for (int i = 0; i < rowColNum; i++)
+            {
+                enviromentGrid.ColumnDefinitions.Add(new ColumnDefinition());
             }
         }
 
@@ -158,6 +190,36 @@ namespace Cellular_Automaton
                     rect.DataContext = cellularAutomaton.CellGrid[row][col];
                     rect.MouseDown += new MouseButtonEventHandler(Rect_OnMouseDown);
                    // rect.MouseMove += new MouseEventHandler(Rect_OnMouseEnter);
+                }
+            }
+        }
+        private void PopulateEnviromentGrid(int  neighboursCount)
+        {
+            int rowColNum = 0;
+            if (neighboursCount == 24) { rowColNum = 5; }
+            else { rowColNum = 3; }
+            for (int row = 0; row < rowColNum; row++)
+            {
+                for (int col = 0; col < rowColNum; col++)
+                {
+                    if (!(neighboursCount == 4 && ((row == 0 && col == 0) || (row == 2 && col == 2) || (row == 0 && col == 2) || (row == 2 && col == 0))))
+                    {
+
+
+                        Label label = new Label();
+                        label.BorderBrush = new SolidColorBrush(Colors.Black);
+                        label.SetValue(BorderThicknessProperty, new Thickness(3));
+                        int tmp = rowColNum / 2;
+                        if (row == tmp && col == tmp)
+                        {
+                            label.Background = new SolidColorBrush(Colors.Gray);
+                        }
+                        else
+                            label.Background = new SolidColorBrush(Colors.White);
+                        Grid.SetRow(label, row);
+                        Grid.SetColumn(label, col);
+                        enviromentGrid.Children.Add(label);
+                    }
                 }
             }
         }
@@ -198,7 +260,7 @@ namespace Cellular_Automaton
 
                 return brush;
         }
-        
+        #endregion 
 
         private async void StartButton_Click(object sender, RoutedEventArgs e)
         {
@@ -210,21 +272,37 @@ namespace Cellular_Automaton
             catch
             {
                 throw new SystemException("Time have to be given in a number");
-                return;
             }
             if (StartButton.Content.Equals("Start"))
             {
+                object myLock = new object();
                 doWork=true;
                 StartButton.Content = "Stop";
-                List<SubRule4PointNH> rule = new List<SubRule4PointNH>();
-                bool[] relevantNeighbors = new bool[4] { true, true, true, true };
-                rule.Add(new SubRule4PointNH(relevantNeighbors, 1));
-                rule.Add(new SubRule4PointNH(relevantNeighbors, 2));
-                rule.Add(new SubRule4PointNH(relevantNeighbors, 3));
-                while (doWork)
+                if ((bool)FourPNHCHeckBox.IsChecked)
                 {
-                    await CellularAutomaton.CalculateNewGeneration_4PNH(cellularAutomaton.CellGrid, rule,timeMS);
+                    List<SubRule4PointNH> rule = ruleList4PNH[ruleComboBox.SelectedValue.ToString()];
+                    while (doWork)
+                    {
+                        await CellularAutomaton.CalculateNewGeneration_4PNH(cellularAutomaton.CellGrid, rule, timeMS);
+                    }
                 }
+                else if ((bool)EightPNHCHeckBox.IsChecked)
+                {
+                    List<SubRule8PointNH> rule = ruleList8PNH[ruleComboBox.SelectedValue.ToString()];
+                    while (doWork)
+                    {
+                        await CellularAutomaton.CalculateNewGeneration_8PNH(cellularAutomaton.CellGrid, rule, timeMS);
+                    }
+                }
+                else if ((bool)TwentyFivePNHCHeckBox.IsChecked)
+                {
+                    List<SubRule24PointNH> rule = ruleList24PNH[ruleComboBox.SelectedValue.ToString()];
+                    while (doWork)
+                    {
+                        await CellularAutomaton.CalculateNewGeneration_24PNH(cellularAutomaton.CellGrid, rule, timeMS);
+                    }
+                }
+                
             }
            // System.Threading.Thread.Sleep(200);
             else
@@ -247,6 +325,180 @@ namespace Cellular_Automaton
         private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
             CellularAutomaton.ClearGrid(cellularAutomaton.CellGrid);    
+        }
+
+        private void FourPNHCHeckBox_Click(object sender, RoutedEventArgs e)
+        {
+            FourPNHCHeckBox.IsChecked = true;
+            EightPNHCHeckBox.IsChecked = false;
+            TwentyFivePNHCHeckBox.IsChecked = false;
+            InitEnviromentGrid(4);
+            PopulateEnviromentGrid(4);
+            addItemsToCheckBox(4);
+            if (ruleComboBox.Items.Count > 0)
+            {
+                ruleComboBox.SelectedIndex = 0;
+            }
+            else ruleComboBox.SelectedValue = "No rules";
+            
+        }
+
+        private void EightPNHCHeckBox_Click(object sender, RoutedEventArgs e)
+        {
+            FourPNHCHeckBox.IsChecked = false;
+            EightPNHCHeckBox.IsChecked = true;
+            TwentyFivePNHCHeckBox.IsChecked = false;
+            InitEnviromentGrid(8);
+            PopulateEnviromentGrid(8);
+            addItemsToCheckBox(8);
+            if (ruleComboBox.Items.Count > 0){  ruleComboBox.SelectedIndex = 0;}
+            else ruleComboBox.SelectedValue = "No rules";
+        }
+
+        private void TwentyFivePNHCHeckBox_Click(object sender, RoutedEventArgs e)
+        {
+            FourPNHCHeckBox.IsChecked = false;
+            EightPNHCHeckBox.IsChecked = false;
+            TwentyFivePNHCHeckBox.IsChecked = true;
+            InitEnviromentGrid(24);
+            PopulateEnviromentGrid(24);
+            addItemsToCheckBox(24);
+            if (ruleComboBox.Items.Count > 0)
+            {
+                ruleComboBox.SelectedIndex = 0;
+            }
+            else ruleComboBox.SelectedValue = "No rules";
+        }
+
+        private void PopulateRuleLists()
+        {
+            List<SubRule4PointNH> rule = new List<SubRule4PointNH>();
+            bool[] relevantNeighbors = new bool[4] { true, true, true, true };
+            rule.Add(new SubRule4PointNH(relevantNeighbors, 1));
+            relevantNeighbors = new bool[4] { true, true, true, true };
+            rule.Add(new SubRule4PointNH(relevantNeighbors, 2));
+            relevantNeighbors = new bool[4] { true, true, true, true };
+            rule.Add(new SubRule4PointNH(relevantNeighbors, 3));
+            ruleList4PNH.Add("Romb", rule);
+
+            rule = new List<SubRule4PointNH>();
+            relevantNeighbors = new bool[4] { true, true, true, true };
+            rule.Add(new SubRule4PointNH(relevantNeighbors, 2));
+            relevantNeighbors = new bool[4] { true, true, true, true };
+            rule.Add(new SubRule4PointNH(relevantNeighbors, 3));
+            ruleList4PNH.Add("Square fill", rule);
+
+            rule = new List<SubRule4PointNH>();
+            relevantNeighbors = new bool[4] { true, true, true, true };
+            rule.Add(new SubRule4PointNH(relevantNeighbors, 1));
+            relevantNeighbors = new bool[4] { true, true, true, true };
+            rule.Add(new SubRule4PointNH(relevantNeighbors, 3));
+            ruleList4PNH.Add("Arrows", rule);
+
+            rule = new List<SubRule4PointNH>();
+            relevantNeighbors = new bool[4] { true, false, true, true };
+            rule.Add(new SubRule4PointNH(relevantNeighbors, 1));
+           // rule.Add(new SubRule4PointNH(relevantNeighbors, 2));
+            rule.Add(new SubRule4PointNH(relevantNeighbors, 3));
+            ruleList4PNH.Add("Only three relevant", rule); 
+
+
+            /*             8PNH              */
+
+            bool[][] relevant8PNeighoburs = new bool[3][];
+            for (int i = 0; i < 3; i++) { relevant8PNeighoburs[i] = new bool[3]; }
+            relevant8PNeighoburs[0] = new bool[3] { false, true, false };
+            relevant8PNeighoburs[1] = new bool[3] { true, false, true };
+            relevant8PNeighoburs[2] = new bool[3] { false, true, false };
+            List<SubRule8PointNH> rule8Test = new List<SubRule8PointNH>();
+            rule8Test.Add(new SubRule8PointNH(relevant8PNeighoburs, 1));
+            relevant8PNeighoburs = new bool[3][];
+            relevant8PNeighoburs[0] = new bool[3] { false, true, false };
+            relevant8PNeighoburs[1] = new bool[3] { true, false, true };
+            relevant8PNeighoburs[2] = new bool[3] { false, true, false };
+            rule8Test.Add(new SubRule8PointNH(relevant8PNeighoburs, 2));
+            relevant8PNeighoburs = new bool[3][];
+            relevant8PNeighoburs[0] = new bool[3] { false, true, false };
+            relevant8PNeighoburs[1] = new bool[3] { true, false, true };
+            relevant8PNeighoburs[2] = new bool[3] { false, true, false };
+            rule8Test.Add(new SubRule8PointNH(relevant8PNeighoburs, 3));
+            ruleList8PNH.Add("8PNH test rule", rule8Test);
+
+
+            /*            24PNH              */
+            bool[][] relevant24Neighbours = new bool[5][];
+            relevant24Neighbours[0] = new bool[5] { false, true, true, true, false };
+            relevant24Neighbours[1] = new bool[5] { false, true, true, true, false };
+            relevant24Neighbours[2] = new bool[5] { true, true, true, true, true};
+            relevant24Neighbours[3] = new bool[5] { false, true, true, true, false };
+            relevant24Neighbours[4] = new bool[5] { false, true, true, true, false };
+            List<SubRule24PointNH> rule24Test = new List<SubRule24PointNH>();
+            rule24Test.Add(new SubRule24PointNH(relevant24Neighbours, 4));
+            relevant24Neighbours = new bool[5][];
+            relevant24Neighbours[0] = new bool[5] { false, true, true, true, false };
+            relevant24Neighbours[1] = new bool[5] { false, true, true, true, false };
+            relevant24Neighbours[2] = new bool[5] { true, true, true, true, true };
+            relevant24Neighbours[3] = new bool[5] { false, true, true, true, false };
+            relevant24Neighbours[4] = new bool[5] { false, true, true, true, false };
+            rule24Test.Add(new SubRule24PointNH(relevant24Neighbours, 2));
+            ruleList24PNH.Add("24PNH test rule", rule24Test);
+
+
+        }
+        public void RefreshRuleList()
+        {
+
+        }
+        private void addItemsToCheckBox(int numberOfNeighbours)
+        {
+            ruleComboBox.Items.Clear();
+            switch (numberOfNeighbours)
+            {
+                case 4:
+                    foreach (string name in ruleList4PNH.Keys) { ruleComboBox.Items.Add(name); }
+                    break;
+                case 8:
+                    foreach (string name in ruleList8PNH.Keys) { ruleComboBox.Items.Add(name); }
+                    break;
+                case 24:
+                    foreach (string name in ruleList24PNH.Keys) { ruleComboBox.Items.Add(name); }
+                    break;
+            }
+        }
+
+        private void LifeGrid_DragOver(object sender, DragEventArgs e)
+        {
+            
+        }
+
+        private void LifeGrid_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (Mouse.LeftButton == MouseButtonState.Pressed)
+            {
+                var uiElement = Mouse.DirectlyOver as Rectangle;
+                Cell cell = (Cell)uiElement.DataContext;
+                cell.IsAlive = true;
+            }
+        }
+
+        private void EditAddRuleButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddEditRuleWindow addEditRuleWindow = new AddEditRuleWindow();
+            addEditRuleWindow.ShowDialog();
+        }
+
+        private void addMS_Click(object sender, RoutedEventArgs e)
+        {
+            int currentTime = int.Parse(timeTextBox.Text);
+            currentTime += 10;
+            timeTextBox.Text = currentTime.ToString();
+        }
+
+        private void lowerMS_Click(object sender, RoutedEventArgs e)
+        {
+            int currentTime = int.Parse(timeTextBox.Text);
+            currentTime -= 10;
+            timeTextBox.Text = currentTime.ToString();
         }
     }
 }

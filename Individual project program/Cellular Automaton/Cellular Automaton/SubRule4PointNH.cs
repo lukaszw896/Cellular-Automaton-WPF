@@ -10,11 +10,12 @@ namespace Cellular_Automaton
     /// This class stores infromation for subrule in 4 point neighborhood. isNeighbourRelevant table, stores information about wheter given cell from neighbourhood
     /// is taken into account of number of alive cells or not.
     /// </summary>
-    class SubRule4PointNH
+    public class SubRule4PointNH
     {
         public bool[] isNeighbourRelevant = new bool[4];
         public int requiredNumberOfAliveCells;
 
+        public SubRule4PointNH() { }
         public SubRule4PointNH(bool[] isNeighbourRelevant, int requiredNumberOfAliveCells)
         {
             if (isNeighbourRelevant.Count() > 4)
@@ -28,6 +29,16 @@ namespace Cellular_Automaton
             this.isNeighbourRelevant = isNeighbourRelevant;
             this.requiredNumberOfAliveCells = requiredNumberOfAliveCells;
             
+        }
+        public override string ToString()
+        {
+            string name = "Rel-";
+            for (int i = 0; i < 4; i++)
+            {
+                if (isNeighbourRelevant[i]) name += 1; else name += 0;
+            }
+            name += "-Req-" + requiredNumberOfAliveCells;
+            return name;
         }
     }
 }

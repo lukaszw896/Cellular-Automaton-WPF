@@ -141,7 +141,141 @@ namespace Cellular_Automaton
             });
         }
 
-        public async Task CalualtePartOfAMatrix_4PNH(List<List<Cell>> orginal, List<SubRule4PointNH> rules,int startX,int endX,int startY, int endY)
+        public static async Task CalculateNewGeneration_8PNH(List<List<Cell>> orginal, List<SubRule8PointNH> rules, int timeMS)
+        {
+            await Task.Run(() =>
+            {
+
+
+                List<List<Cell>> nextGeneration = new List<List<Cell>>();
+                for (int i = 0; i < orginal.Count; i++)
+                {
+                    List<Cell> tmpCellList = new List<Cell>();
+                    for (int j = 0; j < orginal[0].Count; j++)
+                    {
+                        int k;
+                        for (k = 0; k < rules.Count; k++)
+                        {
+                            int numberOfCellsAlive = 0;
+                            for (int l = -1; l < 2; l++)
+                            {
+                                for (int m = -1; m < 2; m++)
+                                {
+                                    if (m != 0 && l != 0)
+                                    {
+                                        int tmpX = i + l;
+                                        int tmpY = j + m;
+                                        if (tmpX < 0) { tmpX = orginal.Count - 1; }
+                                        if (tmpX > orginal.Count - 1) { tmpX = 0; }
+                                        if (tmpY < 0) { tmpY = orginal[0].Count - 1; }
+                                        if (tmpY > orginal[0].Count - 1) { tmpY = 0; }
+
+                                        if (orginal[tmpX][tmpY].IsAlive)
+                                        {
+                                            numberOfCellsAlive++;
+                                        }
+                                    }
+                                }
+                            }
+
+                                if (numberOfCellsAlive == rules[k].requiredNumberOfAliveCells)
+                                {
+                                    tmpCellList.Add(new Cell() { IsAlive = true });
+                                    break;
+                                }
+                        }
+                        if (k == rules.Count)
+                        {
+                            tmpCellList.Add(new Cell());
+                        }
+                    }
+                    nextGeneration.Add(tmpCellList);
+                }
+                //saving new generation to the matrix
+                for (int i = 0; i < orginal.Count; i++)
+                {
+                    for (int j = 0; j < orginal[0].Count; j++)
+                    {
+                        orginal[i][j].IsAlive = nextGeneration[i][j].IsAlive;
+                    }
+                }
+                System.Threading.Thread.Sleep(timeMS);
+            });
+        }
+        internal static async Task CalculateNewGeneration_24PNH(List<List<Cell>> orginal, List<SubRule24PointNH> rules, int timeMS)
+        {
+            await Task.Run(() =>
+            {
+
+
+                List<List<Cell>> nextGeneration = new List<List<Cell>>();
+                for (int i = 0; i < orginal.Count; i++)
+                {
+                    List<Cell> tmpCellList = new List<Cell>();
+                    for (int j = 0; j < orginal[0].Count; j++)
+                    {
+                        int k;
+                        for (k = 0; k < rules.Count; k++)
+                        {
+                            int numberOfCellsAlive = 0;
+                            for (int l = -2; l < 3; l++)
+                            {
+                                for (int m = -2; m < 3; m++)
+                                {
+                                    if (m != 0 && l != 0)
+                                    {
+                                        int tmpX = i + l;
+                                        int tmpY = j + m;
+                                        if (tmpX < 0) { tmpX = orginal.Count - 1; }
+                                        if (tmpX > orginal.Count - 1) { tmpX = 0; }
+                                        if (tmpY < 0) { tmpY = orginal[0].Count - 1; }
+                                        if (tmpY > orginal[0].Count - 1) { tmpY = 0; }
+
+                                        if (orginal[tmpX][tmpY].IsAlive)
+                                        {
+                                            numberOfCellsAlive++;
+                                        }
+                                    }
+                                }
+                            }
+
+                            if (numberOfCellsAlive == rules[k].requiredNumberOfAliveCells)
+                            {
+                                tmpCellList.Add(new Cell() { IsAlive = true });
+                                break;
+                            }
+                        }
+                        if (k == rules.Count)
+                        {
+                            tmpCellList.Add(new Cell());
+                        }
+                    }
+                    nextGeneration.Add(tmpCellList);
+                }
+                //saving new generation to the matrix
+                for (int i = 0; i < orginal.Count; i++)
+                {
+                    for (int j = 0; j < orginal[0].Count; j++)
+                    {
+                        orginal[i][j].IsAlive = nextGeneration[i][j].IsAlive;
+                    }
+                }
+                System.Threading.Thread.Sleep(timeMS);
+            });
+        }
+
+
+        /// <summary>
+        /// multi-threading first try
+        /// </summary>
+        /// <param name="orginal"></param>
+        /// <param name="rules"></param>
+        /// <param name="startX"></param>
+        /// <param name="endX"></param>
+        /// <param name="startY"></param>
+        /// <param name="endY"></param>
+        /// <returns></returns>
+        public static async Task CalualtePartOfAMatrix_4PNH(List<List<Cell>> orginal, List<SubRule4PointNH> rules, int startX, int endX, int startY, int endY)
         {
             await Task.Run(() =>
             {
@@ -231,13 +365,12 @@ namespace Cellular_Automaton
                 {
                     for (int j = startY; j < endY; j++)
                     {
-                        orginal[i][j].IsAlive = nextGeneration[i][j].IsAlive;
+                        orginal[i][j].IsAlive = nextGeneration[i - startX][j - startY].IsAlive;
                     }
                 }
-              //  System.Threading.Thread.Sleep(timeMS);
+                //  System.Threading.Thread.Sleep(timeMS);
             });
         }
-        
 
     }
     class Cell : INotifyPropertyChanged

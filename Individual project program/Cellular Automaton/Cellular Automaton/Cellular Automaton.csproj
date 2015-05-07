@@ -59,7 +59,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddEditRuleWindow.xaml.cs">
+      <DependentUpon>AddEditRuleWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddRule.xaml.cs">
+      <DependentUpon>AddRule.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SubRule24PointNH.cs" />
     <Compile Include="SubRule4PointNH.cs" />
+    <Compile Include="SubRule8PointNH.cs" />
+    <Page Include="AddEditRuleWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddRule.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
