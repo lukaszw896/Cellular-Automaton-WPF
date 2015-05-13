@@ -25,8 +25,8 @@ namespace Cellular_Automaton
     public partial class MainWindow : MetroWindow
     {
         CellularAutomaton cellularAutomaton;
-        int _rowNum = 50;
-        int _colNum = 50;
+        int _rowNum = 60;
+        int _colNum = 60;
         double gridStartWidth = 500;
         double gridStartHeight = 500;
         bool doWork = false;
@@ -282,8 +282,13 @@ namespace Cellular_Automaton
                 {
                     List<SubRule4PointNH> rule = ruleList4PNH[ruleComboBox.SelectedValue.ToString()];
                     while (doWork)
-                    {
-                        await CellularAutomaton.CalculateNewGeneration_4PNH(cellularAutomaton.CellGrid, rule, timeMS);
+                    {                       
+                            await CellularAutomaton.CalculateNewGeneration_4PNH(cellularAutomaton.CellGrid, rule, timeMS);
+                            lock (CellularAutomaton.lockThis)
+                            {
+                                Console.WriteLine("Object locked in mainWindow");
+                            }
+                   
                     }
                 }
                 else if ((bool)EightPNHCHeckBox.IsChecked)
@@ -292,6 +297,7 @@ namespace Cellular_Automaton
                     while (doWork)
                     {
                         await CellularAutomaton.CalculateNewGeneration_8PNH(cellularAutomaton.CellGrid, rule, timeMS);
+                        Console.WriteLine("Object locked in mainWindow (fake)");
                     }
                 }
                 else if ((bool)TwentyFivePNHCHeckBox.IsChecked)
@@ -299,7 +305,12 @@ namespace Cellular_Automaton
                     List<SubRule24PointNH> rule = ruleList24PNH[ruleComboBox.SelectedValue.ToString()];
                     while (doWork)
                     {
+                        
                         await CellularAutomaton.CalculateNewGeneration_24PNH(cellularAutomaton.CellGrid, rule, timeMS);
+                        lock (CellularAutomaton.lockThis)
+                        {
+                            Console.WriteLine("Object locked in mainWindow (fake)");
+                        }
                     }
                 }
                 
